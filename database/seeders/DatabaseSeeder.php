@@ -19,5 +19,11 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        $this->call([
+            //first category, then products because it has a foreign key
+            CategoryTableSeeder::class,
+            ProductTableSeeder::class
+        ]);
     }
 }
